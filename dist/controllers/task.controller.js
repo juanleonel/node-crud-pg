@@ -44,9 +44,9 @@ const createTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
 });
 exports.createTask = createTask;
 const updateTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    let task = req.body;
+    let { id, name, done } = req.body;
     let response = {
-        data: task,
+        data: name,
         message: 'DATA UPDATED',
         status: true
     };

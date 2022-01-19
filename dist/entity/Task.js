@@ -35,6 +35,13 @@ __decorate([
     __metadata("design:type", Date)
 ], Task.prototype, "updated_at", void 0);
 __decorate([
+    (0, typeorm_1.Column)({
+        default: false,
+        type: "boolean"
+    }),
+    __metadata("design:type", Boolean)
+], Task.prototype, "done", void 0);
+__decorate([
     (0, typeorm_1.ManyToOne)(() => User_1.User, user => user.tasks),
     __metadata("design:type", User_1.User)
 ], Task.prototype, "user", void 0);

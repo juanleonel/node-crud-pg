@@ -20,6 +20,13 @@ export class Task extends BaseEntity{
     })
     updated_at!: Date;
 
+    @Column({
+        default: false,
+        type: "boolean"
+    })
+    done!: boolean;
+
+
     @ManyToOne(() => User, user => user.tasks)
     user!: User;
 }

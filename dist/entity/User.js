@@ -35,6 +35,23 @@ __decorate([
     __metadata("design:type", Date)
 ], User.prototype, "updated_at", void 0);
 __decorate([
+    (0, typeorm_1.Column)({
+        nullable: false,
+        length: 200,
+        type: 'varchar',
+        unique: true
+    }),
+    __metadata("design:type", String)
+], User.prototype, "email", void 0);
+__decorate([
+    (0, typeorm_1.Column)({
+        nullable: false,
+        length: 150,
+        type: 'varchar'
+    }),
+    __metadata("design:type", String)
+], User.prototype, "password", void 0);
+__decorate([
     (0, typeorm_1.OneToMany)(() => Task_1.Task, task => task.user),
     __metadata("design:type", Array)
 ], User.prototype, "tasks", void 0);

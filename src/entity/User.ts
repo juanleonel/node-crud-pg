@@ -20,6 +20,21 @@ export class User extends BaseEntity{
     })
     updated_at!: Date;
 
+    @Column({
+        nullable: false,
+        length: 200,
+        type: 'varchar',
+        unique: true
+    })
+    email!: string;
+
+    @Column({
+        nullable: false,
+        length: 150,
+        type: 'varchar'
+    })
+    password!: string;
+
     @OneToMany(() => Task, task => task.user)
     tasks!: Task[];
 }

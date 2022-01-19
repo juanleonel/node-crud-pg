@@ -37,9 +37,9 @@ export const createTask = async (req: Request, res: Response): Promise<Response>
 }
 
 export const updateTask = async (req: Request, res: Response): Promise<Response> => {
-    let task = req.body as Task;
+    let { id, name, done } = req.body;
     let response: ResponseApp = {
-        data: task,
+        data: name,
         message: 'DATA UPDATED',
         status: true
     };
