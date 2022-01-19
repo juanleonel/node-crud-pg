@@ -11,8 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteTask = exports.updateTask = exports.createTask = exports.getTask = exports.getTasks = void 0;
 const task_service_1 = require("../services/task.service");
+const taskService = new task_service_1.TaskService();
 const getTasks = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    let taskService = new task_service_1.TaskService();
     const tasks = yield taskService.getAll();
     let response = {
         data: tasks,
@@ -23,7 +23,6 @@ const getTasks = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.getTasks = getTasks;
 const getTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    let taskService = new task_service_1.TaskService();
     let task = yield taskService.getById(parseInt(req.params.id));
     let response = {
         data: task,
@@ -35,7 +34,6 @@ const getTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.getTask = getTask;
 const createTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     let task = req.body;
-    let taskService = new task_service_1.TaskService();
     taskService.save(task);
     let response = {
         data: task,

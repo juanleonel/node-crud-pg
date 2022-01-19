@@ -15,11 +15,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = require("./db/index");
 const express_1 = __importDefault(require("express"));
 const index_route_1 = __importDefault(require("./routes/index.route"));
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
+        app.use((0, cors_1.default)());
         yield (0, index_1.connectionDB)();
-        app.use(express_1.default.json());
+        app.use(express_1.default.json()); // esto habilita la serializacion en formato json
         app.use(index_route_1.default);
         app.listen(8000, () => {
             console.log('Sever started');
